@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}{{ title or 'Пост' }}{% endblock %}
+{% block content %}
+<a href="{{ url_for('main.index') }}" class="btn btn-link">&larr; Назад</a>
+<h1>{{ title }}</h1>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">
+    {{ form.title.label(class="form-label") }}
+    {{ form.title(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.author.label(class="form-label") }}
+    {{ form.author(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.body.label(class="form-label") }}
+    {{ form.body(class="form-control", rows=8) }}
+  </div>
+  {{ form.submit(class="btn btn-success") }}
+</form>
+{% endblock %}
